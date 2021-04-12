@@ -1,0 +1,57 @@
+.container {
+    /* On ajoute une marge sur les cotés de l'écran */
+    padding-right: 15px;
+    padding-left: 15px;
+
+    /* Et on centre */
+    margin-right: auto;
+    margin-left: auto;
+}
+.title{
+    text-align: center;
+}
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+}
+.part{
+    margin-bottom: 2vw;
+}
+
+.banner{
+    height: 100%; 
+    width: 100%;
+    opacity: 0.3;
+    transition: .5s ease;
+}
+.bannerDiv:hover .banner{
+    opacity: 0.2;
+}
+.bannerDiv{
+    display: block;
+    position: relative;
+    height: 35vw;
+    width: 100%;
+    background-color: rgba(0,0,0,1);
+}
+.bannerText{
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    text-align: center;
+    width: 100%;
+}
+/* Sur les grands écrans, on limite la largeur du contenu */
+@media (min-width: 1200px){
+    .container {
+        width: 1170px;
+    }
+}

@@ -1,0 +1,26 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+a{
+    cursor: pointer;
+}
+.shadow.bottom {
+    width: 100%;
+    box-shadow: 0px 2px 10px -15px #111;    
+}
+.app-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+button:hover{
+    color: green;
+}
+a:hover{
+    color: green;
+}
