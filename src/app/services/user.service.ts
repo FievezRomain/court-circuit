@@ -35,7 +35,7 @@ export class UserService {
     }
   }
 
-  notifyAPI(type:String, idArticle:Number, nb:Number){
+  notifyAPI(type:String, idArticle:String|Number, nb:Number){
 
   }
 }
