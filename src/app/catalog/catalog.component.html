@@ -1,1 +1,26 @@
-<p>catalog works!</p>
+<div class = "page">
+<mat-toolbar  color="primary">
+    <span class="title">Mon catalogue</span>
+  </mat-toolbar>
+   
+    <mat-card class="product" *ngFor="let product of products">
+        <mat-card-header>
+          <mat-card-title>{{product.titre}}</mat-card-title>
+          <mat-card-subtitle>{{product.categorie}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{product.image}}" alt="Image of the product">
+        <mat-card-content>
+          <p>
+            {{product.libelle}}
+          </p>
+          <p>
+            Origine : {{product.provenance}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="addToCard(0)" mat-button>Ajouter</button>
+          <button mat-button>Détail</button>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
