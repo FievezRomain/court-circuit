@@ -1,3 +1,8 @@
 export class Product {
-    id:Number = 0;
+    id: Number = 0;
+    libelle: String = "";
+    urlImage: String = "";
+    provenance: String = "";
+    description: String = "";
+    prix: Number = 0;
 }
