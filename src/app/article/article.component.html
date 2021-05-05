@@ -1,1 +1,36 @@
-<p>article works!</p>
+<div class="container">
+  <div class="product-image">
+    <img src={{product.urlImage}} alt="" class="product-pic">
+  </div>
+
+  <div class="product-details">
+    <header>
+      <h1 class="title">{{product.libelle}}</h1>
+      <span class="colorCat">Origine : {{product.provenance}}</span>
+      <div class="price">
+        <span class="current">{{product.prix}} €</span>
+      </div>
+    </header>
+    <article>
+      <h5>Description</h5>
+      <p>{{product.description}}</p>
+    </article>
+    <div class="controls">
+      <div class="quantity">
+        <h5>Quantité</h5>
+        <div class="product-quantity">
+          <input type="number" value={{product.quantity}} min="1">
+        </div>
+
+      </div>
+
+    </div>
+    <div class="footer">
+      <span> </span>
+      <button mat-raised-button color="warn" class="button">
+        <span>Ajouter au panier</span>
+      </button>
+    </div>
+  </div>
+
+</div>

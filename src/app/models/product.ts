@@ -5,4 +5,5 @@ export class Product {
     provenance: String = "";
     description: String = "";
     prix: Number = 0;
+    quantity: Number = 0;
 }

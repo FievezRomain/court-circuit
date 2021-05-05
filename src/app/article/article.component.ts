@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from '../models/product';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -9,9 +10,15 @@ import { ProductService } from '../services/product.service';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute, public productService:ProductService) { }
+ 
+  product: Product = {id : 0, libelle : "Tomates", description : "Grappe de 5 belles tomates rouges", provenance : "France", prix : 10, urlImage : "https://www.saveol.com/sites/default/files/2018-02/tomate-bio-saveol.png", quantity : 1}
+ 
+  constructor(public productService : ProductService) { }
 
   ngOnInit(): void {
+    
   }
-
+  addToCard(idArticle: number):void{
+    //Add product to user concerned
+  }
 }
