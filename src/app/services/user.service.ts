@@ -1,41 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product';
+import { getMatIconFailedToSanitizeUrlError } from '@angular/material/icon';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  userFirstName : String = "";
-  userLastName : String = "";
-  userCart : Map<Product, Number> = new Map<Product, Number>();
+  users: any = [];
 
   constructor() { }
 
-  addProductToCart(article:Product){
-    if(!this.userCart.has(article)){
-      var nbArticles = this.userCart.get(article);
-      nbArticles = Number(nbArticles) + 1;
-      this.userCart.set(article, Number(nbArticles))
-      this.notifyAPI("PUT", article.id, 1);
-    } else{
-      this.userCart.set(article, 1);
-      this.notifyAPI("POST", article.id, 1);
+  createUser(user: User){
+    if(this.getUser(user.id) != null){
+      return false;
     }
+    this.users.push(user);
+    return true;
   }
-  deleteProductToCart(article:Product){
-    var nbArticles = this.userCart.get(article);
-    nbArticles = Number(nbArticles);
-    if(nbArticles > 1){
-      nbArticles = Number(nbArticles) - 1;
-      this.userCart.set(article, Number(nbArticles));
-      this.notifyAPI("PUT", article.id, 1);
-    } else{
-      this.userCart.delete(article);
-      this.notifyAPI("DELETE", article.id, 1);
+  getUser(id: Number){
+    for(var i = 0; i < this.users.length; i++){
+      var user = this.users[i];
+      if(user.id = id){
+        return user;
+      }
     }
+    return null;
   }
+  updateUser(user: User){
+    this.deleteUser(user);
+    this.createUser(user);
+  }
+  deleteUser(user: User){
+    var index = this.users.indexOf(user);
+    this.users.splice(index, 1);
+  }
+  addSessionObj(){
 
-  notifyAPI(type:String, idArticle:String|Number, nb:Number){
+  }
+  removeSessionObj(){
 
   }
 }
