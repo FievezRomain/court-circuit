@@ -1,5 +1,5 @@
 .page{
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(204, 204, 204);
 }
   .title{
     margin: 0 auto;
@@ -12,6 +12,10 @@
     margin-top: 10px;
     margin-bottom: 10px;
     text-align:center;
-
   }
- 
+  .imgProduct{
+    height: 15vw;
+  }
+  button:hover{
+    color: green;
+}
