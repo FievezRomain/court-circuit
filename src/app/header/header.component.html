@@ -6,10 +6,10 @@
     <button routerLink="" routerLinkActive="active-link" class="element" mat-flat-button *ngIf="isModerateur">Gestion</button>
     <button routerLink="/catalogue" routerLinkActive="active-link" class="element" mat-flat-button>Catalogue</button>
     <button routerLink="/panier" routerLinkActive="active-link" class="element" mat-flat-button>Panier</button>
-    <a class="material-icons md-36" *ngIf="!isConnected">
-        login
-    </a>
-    <a class="material-icons md-36" *ngIf="isConnected">
-        logout
-    </a>
+    <button *ngIf="!isConnected" routerLink="/login" routerLinkActive="active-link" mat-flat-button>
+        Connexion
+    </button>
+    <button *ngIf="isConnected" (click)="logout()" mat-flat-button>
+        Déconnexion
+    </button>
 </mat-toolbar>

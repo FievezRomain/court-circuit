@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
-import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +12,24 @@ export class HeaderComponent implements OnInit {
   isConnected: Boolean = false;
   isModerateur: Boolean = false;
 
-  constructor(public userService : UserService) { }
+  constructor(public authService : AuthService) { }
 
   ngOnInit(): void {
     this.utilisateur = new User();
     if(this.utilisateur.grade == "moderateur"){
       this.isModerateur = true;
     }
+  }
+
+  logout(): void{
+    this.authService.logout().subscribe(
+      ()=>{
+
+      },
+      (error)=>{
+
+      }
+    )
   }
 
 }
