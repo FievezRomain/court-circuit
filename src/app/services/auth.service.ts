@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   connectedUser:any = null;
+  isModerateur:Boolean = false;
   constructor(private http: HttpClient) { }
 
   login(email: any, password: any):Observable<any>{
@@ -25,6 +26,9 @@ export class AuthService {
     this.http.get("http://localhost:3000/isLogged", {withCredentials: true}).subscribe(
       (connectedUser)=>{
         this.connectedUser = connectedUser;
+        if(this.connectedUser.grade == "Moderateur"){
+          this.isModerateur = true;
+        }
         console.log("connected");
       },
       (error)=>{

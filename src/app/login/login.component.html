@@ -8,13 +8,13 @@
   
   <hr>
   <label id="icon" for="nom"><i class="icon-envelope "></i></label>
-  <input type="text" name="nom" id="nom" placeholder="Email" required/>
+  <input type="text" name="nom" [(ngModel)]="email" id="nom" placeholder="Email" required/>
   <label id="icon" for="nom"><i class="icon-shield"></i></label>
-  <input type="password" name="nom" id="nom" placeholder="Mot de passe" required/>
+  <input type="password" name="nom" [(ngModel)]=password id="nom" placeholder="Mot de passe" required/>
    
   <div class="footer">
     <span> </span>
-    <button mat-raised-button color="warn" class="button" >
+    <button mat-raised-button color="warn" class="button" (click)="submit()">
        <span>Se connecter</span>
     </button>
     <button mat-raised-button color="warn" class="button" routerLink="/register" routerLinkActive="active-link">

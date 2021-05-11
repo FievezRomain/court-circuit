@@ -3,13 +3,13 @@
         <img src="assets/img/logo2.png"/>
     </a>
     <span class="example-spacer"></span>
-    <button routerLink="" routerLinkActive="active-link" class="element" mat-flat-button *ngIf="isModerateur">Gestion</button>
+    <button routerLink="" routerLinkActive="active-link" class="element" mat-flat-button *ngIf="authService.isModerateur">Gestion</button>
     <button routerLink="/catalogue" routerLinkActive="active-link" class="element" mat-flat-button>Catalogue</button>
-    <button routerLink="/panier" routerLinkActive="active-link" class="element" mat-flat-button>Panier</button>
-    <button *ngIf="!isConnected" routerLink="/login" routerLinkActive="active-link" mat-flat-button>
+    <button routerLink="/panier" routerLinkActive="active-link" class="element" *ngIf="authService.connectedUser!=null" mat-flat-button>Panier</button>
+    <button *ngIf="authService.connectedUser==null" routerLink="/login" routerLinkActive="active-link" mat-flat-button>
         Connexion
     </button>
-    <button *ngIf="isConnected" (click)="logout()" mat-flat-button>
+    <button *ngIf="authService.connectedUser!=null" (click)="logout()" mat-flat-button>
         Déconnexion
     </button>
 </mat-toolbar>

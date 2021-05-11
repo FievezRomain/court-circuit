@@ -8,26 +8,20 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  utilisateur?: User;
-  isConnected: Boolean = false;
-  isModerateur: Boolean = false;
 
   constructor(public authService : AuthService) { }
 
   ngOnInit(): void {
-    this.utilisateur = new User();
-    if(this.utilisateur.grade == "moderateur"){
-      this.isModerateur = true;
-    }
   }
 
   logout(): void{
     this.authService.logout().subscribe(
       ()=>{
-
+        this.authService.connectedUser = null;
+        this.authService.isModerateur = false;
       },
       (error)=>{
-
+        console.log(error);
       }
     )
   }
