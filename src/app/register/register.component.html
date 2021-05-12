@@ -4,24 +4,37 @@
 <div class="testbox">
   <h1>Inscription</h1>
 
-  <form action="/">
   
   <hr>
-  <label id="icon" for="nom"><i class="icon-envelope "></i></label>
-  <input type="text" name="nom" id="nom" placeholder="Email" required/>
+  <div>
+    <label id="icon" for="nom"><i class="icon-envelope "></i></label>
+    <input type="text" [(ngModel)]="email" placeholder="Email" required/>
+  </div>
+  
+  <div>
+
+  </div>
   <label id="icon" for="nom"><i class="icon-user"></i></label>
-  <input type="text" name="nom" id="nom" placeholder="Nom" required/>
-  <label id="icon" for="nom"><i class="icon-user"></i></label>
-  <input type="text" name="nom" id="nom" placeholder="Prenom" required/>
-  <label id="icon" for="nom"><i class="icon-shield"></i></label>
-  <input type="password" name="nom" id="nom" placeholder="Mot de passe" required/>
+  <input type="text" [(ngModel)]="nom" placeholder="Nom" required/>
+  
+  <div>
+    <label id="icon" for="nom"><i class="icon-user"></i></label>
+    <input type="text" [(ngModel)]="prenom" placeholder="Prenom" required/>
+  </div>
+  
+  
+  <div>
+    <label id="icon" for="nom"><i class="icon-shield"></i></label>
+    <input type="password" [(ngModel)]="password" placeholder="Mot de passe" required/>
+  </div>
+  
+  
    
   <div class="footer">
     <span> </span>
-    <button mat-raised-button color="warn" class="button" >
+    <button mat-raised-button color="warn" class="button" (click)="submit()">
        <span>S'inscrire</span>
     </button>
     <img src="assets/img/logo2.png" class="logo"/>
   </div>
-  </form>
 </div>
