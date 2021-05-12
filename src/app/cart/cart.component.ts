@@ -10,8 +10,8 @@ import { ProductService } from '../services/product.service';
 export class CartComponent implements OnInit {
 
   
-  product1: Product = {id : 0, libelle : "Pomme", description : "Une belle pomme", provenance : "France", prix : 5, urlImage : "https://www.le-panier-de-flo.fr/3954-large_default/pommes-pink-lady-800g.jpg", quantity : 1}
-  product2: Product = {id : 1, libelle : "Poire", description : "Une belle poire", provenance : "Allemagne", prix : 5, urlImage : "http://labelbleu.ch/system/files/7205/medium/poire-williams.png?1474442636", quantity  :2}
+  product1: Product = {id : 0, libelle : "Pomme", description : "Une belle pomme",categorie:"Fruit", provenance : "France", prix : 5, urlImage : "https://www.le-panier-de-flo.fr/3954-large_default/pommes-pink-lady-800g.jpg", quantity : 1}
+  product2: Product = {id : 1, libelle : "Poire", description : "Une belle poire",categorie:"Fruit", provenance : "Allemagne", prix : 5, urlImage : "http://labelbleu.ch/system/files/7205/medium/poire-williams.png?1474442636", quantity  :2}
  
   products : Array<Product> = new Array <Product>();
 

@@ -4,6 +4,7 @@ export class Product {
     urlImage: String = "";
     provenance: String = "";
     description: String = "";
+    categorie: String= "";
     prix: Number = 0;
     quantity: Number = 0;
 }

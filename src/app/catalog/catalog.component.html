@@ -3,13 +3,13 @@
     <mat-grid-tile *ngFor="let product of products">
       <mat-card class="product">
         <mat-card-header>
-          <mat-card-title>{{product.titre}}</mat-card-title>
+          <mat-card-title>{{product.libelle}}</mat-card-title>
           <mat-card-subtitle>{{product.categorie}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="{{product.image}}" alt="Image of the product" class="imgProduct">
+        <img mat-card-image src="{{product.urlImage}}" alt="Image of the product" class="imgProduct">
         <mat-card-content>
           <p>
-            {{product.libelle}}
+            {{product.description}}
           </p>
           <p>
             Origine : {{product.provenance}}
@@ -17,7 +17,7 @@
         </mat-card-content>
         <mat-card-actions>
           <button (click)="addToCard(0)" mat-button>Ajouter</button>
-          <button routerLink="/catalogue/{{product.idArticle}}" routerLinkActive="active-link" mat-button>Détail</button>
+          <button routerLink="/catalogue/{{product.id}}" routerLinkActive="active-link" mat-button>Détail</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
