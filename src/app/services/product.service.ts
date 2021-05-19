@@ -19,12 +19,15 @@ export class ProductService {
   addProduct(produit: Product):Observable<any>{
     return this.http.post("http://localhost:3000/products", produit);
   }
+  addImage(id: Number, formData : FormData):Observable<any>{
+    return this.http.post("http://localhost:3000/products/image/"+id, formData);
+  }
 
-  updateProduct(id: number, produit : Product): Observable<any>{
+  updateProduct(id: Number, produit : Product): Observable<any>{
     return this.http.put("http://localhost:3000/products/"+ id, produit);
   } //verifier _id
 
-  deleteProduct(id : number): Observable<any>{
+  deleteProduct(id : Number): Observable<any>{
     return this.http.delete("http://localhost:3000/products/"+ id);
   }
 

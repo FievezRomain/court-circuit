@@ -1,0 +1,28 @@
+.button{
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 50px;
+  padding: 10px 50px;
+
+}
+.container{
+    background-color: rgb(204, 204, 204);
+}
+  .title{
+    margin: 0 auto;
+  }
+
+  .product {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align:center;
+  }
+  .imgProduct{
+    height: 15vw;
+  }
+  button:hover{
+    color: green;
+}

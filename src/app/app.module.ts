@@ -20,6 +20,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { CatalogManagerComponent } from './catalog-manager/catalog-manager.component';
+import { ProductManagerComponent } from './product-manager/product-manager.component';
+import {MatSelectModule} from '@angular/material/select';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     CartComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    CatalogManagerComponent,
+    ProductManagerComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

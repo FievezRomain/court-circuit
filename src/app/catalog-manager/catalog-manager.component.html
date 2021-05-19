@@ -1,0 +1,32 @@
+<div class="container">
+
+  
+  <div class = "page">
+    <mat-grid-list cols="3" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let product of products">
+        <mat-card class="product">
+          <mat-card-header>
+            <mat-card-title>{{product.libelle}}</mat-card-title>
+            <mat-card-subtitle>{{product.categorie}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{product.urlImage}}" alt="Image of the product" class="imgProduct">
+          <mat-card-content>
+            <p>
+              {{product.description}}
+            </p>
+            <p>
+              Origine : {{product.provenance}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button routerLink="/gestionproduit//{{product.id}}" routerLinkActive="active-link"  mat-button>Modifier</button>
+            <button (click)="openDialog(product.id)" mat-button>Supprimer</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>  
+  </div>
+  <div>
+    <button mat-raised-button class="button" routerLink="/creationproduit" routerLinkActive="active-link" color="primary">Ajouter un produit</button>
+  </div>
+</div>
