@@ -12,19 +12,30 @@ export class CreateProductComponent implements OnInit {
   product: Product = new Product();
   products : Array<Product> = new Array <Product>();
   FormData = new FormData();
-
+  message="";
+  isValidForm=true;
   constructor(public productService : ProductService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.product.id = params["id"];
+    })
   }
-  
+  validForm():boolean{
+    this.message="Champ(s) invalide(s): "+'\n';
+    let resultat = true;
+    if (this.product.categorie==""){  this.message+='\n' +"Catégorie est vide"; resultat= false ;} 
+    if (this.product.description==""){ this.message+='\n' +"Description est vide"; resultat= false ;} 
+    if (this.product.libelle=="") { this.message+='\n' + "Libellé est vide"; resultat= false ;}
+    if ((this.product.prix==null) || (this.product.prix < 0) ) { this.message+='\n' + "Prix vide ou négatif"; resultat= false ;}
+    if (this.product.provenance=="") { this.message+='\n' +"Provenance est vide"; resultat= false ;}
+    if ((this.product.quantity==null) || (this.product.quantity < 0) ) { this.message+='\n' +"Quantité vide ou négative"; resultat= false ;}
+    return resultat;
+  }
   saveProduct(){
-    this.product.id=3;
-    this.products.push(this.product); 
-    this.router.navigate(["/gestioncatalogue"]);
-
-    /* Envoi du produit et de l'image au serveur
-    this.productService.addProduct(this.product).subscribe(
+      this.isValidForm=this.validForm();
+      if (this.isValidForm){
+      this.productService.addProduct(this.product).subscribe(
       ()=>{
         this.router.navigate(["/gestioncatalogue"]);
       },
@@ -32,9 +43,9 @@ export class CreateProductComponent implements OnInit {
         console.log("erreur de suppression");
       }
     )
-    */
+    
   }
-  
+}
   openDialog() {
     if(confirm("Etes-vous sur de vouloir quitter cette page ?")) {
       this.router.navigate(["/gestioncatalogue"]);  }

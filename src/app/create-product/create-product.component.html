@@ -11,6 +11,7 @@
 
  
   <div class="product-details">
+    <p style="white-space: pre-line" class="errorMsg" [hidden]=isValidForm> {{message }}</p> 
     <h1>Veuillez saisir les informations</h1>
         <mat-form-field appearance="fill"  >
           <input matInput [(ngModel)]="product.libelle">
@@ -38,14 +39,14 @@
           <mat-hint>Prix</mat-hint>
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <input matInput type="Number" class="example-right-align" [(ngModel)]="product.quantity">
+          <input matInput type="Number" type="Number" min="1" required class="example-right-align" [(ngModel)]="product.quantity">
           <span matSuffix>Unité(s)</span>
           <mat-hint>Quantité</mat-hint>
         </mat-form-field>
         
         <div class="footer">
           <button mat-raised-button  class="button" (click)="openDialog()" color="warn">Annuler</button>          
-          <button mat-raised-button class="button" (click)="saveProduct()"  routerLink="/gestioncatalogue" routerLinkActive="active-link" color="primary">Enregistrer</button>
+          <button mat-raised-button class="button" (click)="saveProduct()"  color="primary">Enregistrer</button>
         </div>
 
   </div>
