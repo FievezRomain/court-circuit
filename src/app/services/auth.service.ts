@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class AuthService {
     this.http.get("http://localhost:3000/isLogged", {withCredentials: true}).subscribe(
       (connectedUser)=>{
         this.connectedUser = connectedUser;
-        if(this.connectedUser.grade == "Moderateur"){
+        if(this.connectedUser.grade == "moderateur"){
           this.isModerateur = true;
         }
         console.log("connected");
@@ -35,5 +36,20 @@ export class AuthService {
         console.log("not connected");
       }
     )
+  }
+
+  updateUser(id: Number, user : User): Observable<any>{
+    return this.http.put("http://localhost:3000/users/"+ id, user);
+  } //verifier _id
+
+  deleteUser(id : Number): Observable<any>{
+    return this.http.delete("http://localhost:3000/users/"+ id);
+  }
+
+  getUsers():Observable<any>{
+    return this.http.get("http://localhost:3000/users");
+  }
+  getUser(id : number):Observable<any>{
+    return this.http.get("http://localhost:3000/users/"+id);
   }
 }

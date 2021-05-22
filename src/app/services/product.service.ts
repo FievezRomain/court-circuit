@@ -19,9 +19,9 @@ export class ProductService {
   addProduct(produit: Product):Observable<any>{
     return this.http.post("http://localhost:3000/products", produit);
   }
-  addImage(id: Number, formData : FormData):Observable<any>{
-    return this.http.post("http://localhost:3000/products/image/"+id, formData);
-  }
+  // addImage(id: Number, formData : FormData):Observable<any>{
+  //   return this.http.post("http://localhost:3000/products/image/"+id, formData);
+  // }
 
   updateProduct(id: Number, produit : Product): Observable<any>{
     return this.http.put("http://localhost:3000/products/"+ id, produit);

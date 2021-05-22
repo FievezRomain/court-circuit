@@ -1,7 +1,7 @@
 export class Product {
-    id: Number = 0;
+    _id: Number = 0;
     libelle: String = "";
-    urlImage: String = "";
+    // urlImage: String = "";
     provenance: String = "";
     description: String = "";
     categorie: String= "";

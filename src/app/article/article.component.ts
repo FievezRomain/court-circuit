@@ -9,9 +9,6 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-
- 
-  //product: Product = {id : 0, libelle : "Tomates", description : "Grappe de 5 belles tomates rouges",categorie:"Fruit", provenance : "France", prix : 10, urlImage : "https://www.saveol.com/sites/default/files/2018-02/tomate-bio-saveol.png", quantity : 1}
   product: Product = new Product();
   id: number = 0;
   constructor(public productService : ProductService, private route: ActivatedRoute, private router:Router) { }

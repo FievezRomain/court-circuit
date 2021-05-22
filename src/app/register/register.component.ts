@@ -22,6 +22,9 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.email, this.password, this.nom, this.prenom).subscribe(
       (userInfo:any)=>{
         this.authService.connectedUser = userInfo;
+        if(userInfo.grade == "moderateur"){
+          this.authService.isModerateur = true;
+        }
         this.router.navigate(["/"]);
       }, 
       (error)=>{

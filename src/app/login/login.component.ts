@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.email, this.password).subscribe(
       (userInfo:any)=>{
         this.authService.connectedUser = userInfo;
+        if(userInfo.grade == "moderateur"){
+          this.authService.isModerateur = true;
+        }
         this.router.navigate(["/"]);
       }, 
       (error)=>{

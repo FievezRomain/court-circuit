@@ -9,6 +9,9 @@ import { LoginComponent } from './login/login.component';
 import { CatalogManagerComponent } from './catalog-manager/catalog-manager.component';
 import { ProductManagerComponent } from './product-manager/product-manager.component';
 import  {CreateProductComponent} from './create-product/create-product.component';
+import { ManagementComponent } from './management/management.component';
+import { UsersManagerComponent } from './users-manager/users-manager.component';
+import { UserManagerComponent } from './user-manager/user-manager.component';
 
 
 const routes: Routes = [
@@ -19,9 +22,12 @@ const routes: Routes = [
   {path:'catalogue/:id', component:ArticleComponent},
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
-  {path: 'gestioncatalogue', component: CatalogManagerComponent},
-  {path: 'gestionproduit/:id', component: ProductManagerComponent},
-  {path: 'creationproduit/:id', component: CreateProductComponent}
+  {path: 'management', component:ManagementComponent},
+  {path: 'managecatalogue', component: CatalogManagerComponent},
+  {path: 'managecatalogue/:id', component: ProductManagerComponent},
+  {path: 'manageusers', component: UsersManagerComponent},
+  {path: 'manageusers/:id', component: UserManagerComponent},
+  {path: 'creationproduit', component: CreateProductComponent}
 ];
 
 @NgModule({

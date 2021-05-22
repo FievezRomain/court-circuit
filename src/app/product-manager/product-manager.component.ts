@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product';
+import { AuthService } from '../services/auth.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -12,25 +13,25 @@ export class ProductManagerComponent implements OnInit {
   //product: Product = {id : 0, libelle : "Tomates", description : "Grappe de 5 belles tomates rouges",categorie:"Fruit", provenance : "France", prix : 10, urlImage : "https://www.saveol.com/sites/default/files/2018-02/tomate-bio-saveol.png", quantity : 1}
   product: Product = new Product();
   id: number = 0;
-  FormData = new FormData();
+  // FormData = new FormData();
   message="";
   isValidForm=true;
-  constructor(public productService : ProductService, private route: ActivatedRoute, private router:Router) { }
+  constructor(private authService: AuthService, public productService : ProductService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
+    if(!this.authService.isModerateur){
+      this.router.navigate(["/"]); 
+    }
     this.route.params.subscribe(params => {
       this.id = params["id"];
     })
     this.getProduit(this.id);
-
-    
-
   }
     /*Fonction pour récupérer le produit via l'API*/
   getProduit(id : number){
     this.productService.getProduct(id).subscribe(
       (produit : any)=>{
-        this.product = produit.data;
+        this.product = produit;
       },
       (error)=>{
         console.log("erreur")
@@ -52,7 +53,7 @@ export class ProductManagerComponent implements OnInit {
   saveProduct(){
     this.isValidForm=this.validForm();
     if (this.isValidForm){
-       this.productService.updateProduct(this.product.id, this.product).subscribe(
+       this.productService.updateProduct(this.product._id, this.product).subscribe(
       ()=>{    
         console.log("OK");   
       },
@@ -60,7 +61,7 @@ export class ProductManagerComponent implements OnInit {
         console.log("Erreur");   
       }
     )
-    this.router.navigate(["/gestioncatalogue"]);
+    this.router.navigate(["/managecatalogue"]);
 
     /*
     this.productService.addImage(this.id, this.FormData).subscribe(
@@ -80,17 +81,17 @@ export class ProductManagerComponent implements OnInit {
       this.router.navigate(["/gestioncatalogue"]);  }
   }
   
-  onFileSelected(event:any) {
+//   onFileSelected(event:any) {
 
-    const file:File = event.target.files[0];
+//     const file:File = event.target.files[0];
 
-    if (file) {
+//     if (file) {
 
-        this.FormData.append(this.id.toString(), file);
+//         this.FormData.append(this.id.toString(), file);
         
-    }
+//     }
     
-}
+// }
   mySubmit(): Boolean{
     return false;
 }

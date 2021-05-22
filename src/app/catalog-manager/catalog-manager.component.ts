@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product';
+import { AuthService } from '../services/auth.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -10,23 +11,23 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./catalog-manager.component.scss']
 })
 export class CatalogManagerComponent implements OnInit {
-
-  //product1: Product = {id : 0, libelle : "Pomme", categorie : "Fruit", description : "Mon premier produit", provenance : "France", prix : 10, urlImage : "assets/img/product1.jpg", quantity:0 }
-  //product2: Product = {id : 1, libelle: "Pomme2", categorie : "Fruit", description : "Mon second produit", provenance : "Italie", prix : 15, urlImage : "assets/img/product1.jpg", quantity:0 }
   products : Array<Product> = new Array <Product>();
 
 
-  constructor(public productService : ProductService, private route: ActivatedRoute, private router:Router) { }
+  constructor(private authService: AuthService, public productService : ProductService, private router:Router) { }
 
   ngOnInit(): void {
+    if(!this.authService.isModerateur){
+      this.router.navigate(["/"]); 
+    }
     //this.products.push(this.product1, this.product2);;
     this.getProduits();
   }
 /* Fonction pour récupérer les produits via l'API */
   getProduits(){
     this.productService.getProducts().subscribe(
-      (produits : any)=>{
-        this.products = produits.data;
+      (produits : Array<Product>)=>{
+        this.products = produits;
       },
       (error)=>{
         console.log("erreur")
@@ -54,15 +55,15 @@ export class CatalogManagerComponent implements OnInit {
       }
     )
   }
-  createNewId(): Number{
-    let id : Number = 0;
-    for(let product of this.products){
-      if(product.id >= id)
-      id= +product.id+1  ;
+  // createNewId(): Number{
+  //   let id : Number = 0;
+  //   for(let product of this.products){
+  //     if(product.id >= id)
+  //     id= +product.id+1  ;
      
-    }
-    return id;
-  }
+  //   }
+  //   return id;
+  // }
   
   openDialog(id : Number){
     if(confirm("Ce produit sera définitivement supprimé!")) {
