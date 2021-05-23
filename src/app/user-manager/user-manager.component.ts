@@ -52,14 +52,12 @@ export class UserManagerComponent implements OnInit {
     if (this.isValidForm){
        this.authService.updateUser(this.user._id, this.user).subscribe(
           ()=>{    
-            console.log("OK");   
+            this.router.navigate(["/manageusers"]); 
           },
           (error)=>{
             console.log("Erreur");   
           }
         )
-        this.router.navigate(["/manageusers"]);
       }
   }
-
 }

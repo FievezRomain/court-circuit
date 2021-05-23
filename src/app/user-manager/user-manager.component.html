@@ -1,34 +1,42 @@
-<div class="container">
+<div class="form">
     <div class="product-details">
         <p style="white-space: pre-line" class="errorMsg" [hidden]=isValidForm> {{message }}</p> 
-        <mat-form-field appearance="fill"  >
-            <input matInput [(ngModel)]="user.nom">
-            <mat-hint>Nom</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <input matInput [(ngModel)]="user.prenom">
-            <mat-hint>Prenom</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-hint>Grade</mat-hint>           
-            <mat-select [(ngModel)]="user.grade">
-            <mat-option value="utilisateur">Utilisateur</mat-option>
-            <mat-option value="moderateur">Moderateur</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <input matInput [(ngModel)]="user.email">
-            <mat-hint>Email</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <input matInput type="password" [(ngModel)]="user.password">
-            <mat-hint>Password</mat-hint>
-        </mat-form-field>
-        <div class="footer">
+        <div>
+            <mat-form-field appearance="fill"  >
+                <input matInput [(ngModel)]="user.nom">
+                <mat-hint>Nom</mat-hint>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="user.prenom">
+                <mat-hint>Prenom</mat-hint>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-hint>Grade</mat-hint>           
+                <mat-select [(ngModel)]="user.grade">
+                    <mat-option value="utilisateur">Utilisateur</mat-option>
+                    <mat-option value="moderateur">Moderateur</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="user.email">
+                <mat-hint>Email</mat-hint>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <input matInput type="password" [(ngModel)]="user.password">
+                <mat-hint>Password</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="actions">
             <button mat-raised-button class="button"  (click)="saveUser()" color="primary">Valider</button>
         </div>
-
     </div>
-    
 </div>
   

@@ -1,37 +1,48 @@
-<div class="container">
+
   <!-- <div class="product-image">
     <img src={{product.urlImage}} alt="" class="product-pic">
   </div> -->
-
-  <div class="product-details">
-    <header>
-      <h1 class="title">{{product.libelle}}</h1>
-      <span class="colorCat">Catégorie : {{product.categorie}}</span><br>
-      <span class="colorCat">Origine : {{product.provenance}}</span>
-      <div class="price">
-        <span class="current">{{product.prix}} €</span>
-      </div>
-    </header>
-    <article>
-      <h5>Description</h5>
-      <p>{{product.description}}</p>
-    </article>
-    <div class="controls">
-      <div class="quantity">
-        <h5>Quantité</h5>
-        <div class="product-quantity">
-          <input type="number" value={{product.quantity}} min="1">
+  <mat-grid-list cols="3" rowHeight="2:1" gutterSize="5px">
+    <mat-grid-tile [colspan]="2" [rowspan]="2">
+      <mat-card>
+        <div class="title">
+          <h1>{{product.libelle}}</h1>
         </div>
-
-      </div>
-
-    </div>
-    <div class="footer">
-      <span> </span>
-      <button mat-raised-button color="warn" class="button">
-        <span>Ajouter au panier</span>
-      </button>
-    </div>
-  </div>
-
-</div>
+        <div class="imageArticle">
+          <img src="" alt="ok"/>
+        </div>
+        <div class="info">
+          <span><b>Catégorie :</b> {{product.categorie}}</span>
+        </div>
+        <div class="info">
+          <span><b>Origine :</b> {{product.provenance}}</span>
+        </div>
+        <div class="description">
+          <span><b>Description :</b></span>
+          <p>{{product.description}}</p>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <mat-card>
+        <div class="price center">
+          <h1><b>{{product.prix}} €</b> unité</h1>
+        </div>
+        <div class="center">
+          <mat-form-field appearance="fill">
+            <input matInput type="Number" type="Number" min="1" required [(ngModel)]="this.quantity" (change)="getTotal()">
+            <span matSuffix>Unité(s)</span>
+            <mat-hint>Quantité</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="info center">
+          <span><b>Total :</b> {{this.total}}</span>
+        </div>
+        <div class="center">
+          <button mat-raised-button color="primary" class="button">
+            <span>Ajouter au panier</span>
+          </button>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>

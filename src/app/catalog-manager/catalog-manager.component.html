@@ -2,6 +2,9 @@
 
   
   <div class = "page">
+    <div>
+      <button mat-raised-button class="button" routerLink="/creationproduit/" routerLinkActive="active-link" color="primary">Ajouter un produit</button>
+    </div>
     <mat-grid-list cols="3" rowHeight="1:1">
       <mat-grid-tile *ngFor="let product of products">
         <mat-card class="product">
@@ -25,8 +28,5 @@
         </mat-card>
       </mat-grid-tile>
     </mat-grid-list>  
-  </div>
-  <div>
-    <button mat-raised-button class="button" routerLink="/creationproduit/" routerLinkActive="active-link" color="primary">Ajouter un produit</button>
   </div>
 </div>

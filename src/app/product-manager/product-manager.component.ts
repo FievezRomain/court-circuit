@@ -55,13 +55,12 @@ export class ProductManagerComponent implements OnInit {
     if (this.isValidForm){
        this.productService.updateProduct(this.product._id, this.product).subscribe(
       ()=>{    
-        console.log("OK");   
+        this.router.navigate(["/managecatalogue"]);
       },
       (error)=>{
         console.log("Erreur");   
       }
     )
-    this.router.navigate(["/managecatalogue"]);
 
     /*
     this.productService.addImage(this.id, this.FormData).subscribe(

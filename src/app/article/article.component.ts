@@ -11,10 +11,11 @@ import { ProductService } from '../services/product.service';
 export class ArticleComponent implements OnInit {
   product: Product = new Product();
   id: number = 0;
+  quantity: number = 1;
+  total: Number = 0;
   constructor(public productService : ProductService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-
    this.route.params.subscribe(params => {
     this.id = params["id"];
   })
@@ -26,11 +27,15 @@ export class ArticleComponent implements OnInit {
   getProduit(id : number){
     this.productService.getProduct(id).subscribe(
       (produit : any)=>{
-        this.product = produit.data;
+        this.product = produit;
+        this.total = this.product.prix;
       },
       (error)=>{
         console.log("erreur")
       }
     )
   } 
+  getTotal(){
+    this.total = this.quantity * Number(this.product.prix);
+  }
 }

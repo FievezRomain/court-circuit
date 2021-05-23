@@ -1,108 +1,22 @@
-*{
-    font-family: 'Oswald', sans-serif;
-  }
-  
-  $pgb: #3f9762;
-  $pgt: #63cca6;
-
-  @mixin bp($bp,
-    $min-max: min-width){
-      $em: $bp/16;
-      @media(#{$min-max}: #{$em}em){
-        @content;
-      }
-  }
-
-  .container{
-    margin: 30px;
-    width: 100%;
-    max-width: 1100px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-  }
-  
-  .product{
-    &-image{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: linear-gradient(to bottom, $pgt 0%, $pgb 100%);
-      border-radius: 20px 20px 0 0;
-      padding: 65px 0;
-      width: 100%;
-      margin: auto;
-    }
-    &-pic{
-      max-width: 180px;
-      position: relative;
-      left: 0;
-      margin: 40px 0;
-      filter: drop-shadow(-6px 40px 23px rgba(black, 0.5));
-    }
-    &-details{
-      padding: 70px;
-      background-color: white;
-      border-radius: 0 0 20px 20px;
-      width: 100%;
-      .footer{
-        width: 100%;
-        margin-top: 20px;
-        .button{
-          display: table-cell;
-          padding: 10px 50px;
-          margin-left: 50px;
-        } 
-      }
-          }
-          
-    }
-   
-  @include bp(900){
-    .container{
-      display: flex;
-      flex-direction: row;
-      align-items: normal;
-      margin: auto;
-    }
-    .product-image{
-      border-radius: 20px 0 0 20px;
-      max-width: 330px;
-      margin-top: 180px;
-    }
-    .product-pic{
-      left: -40px;
-      max-width: 330px;
-    }
-    .product-details{
-      width: 100%;
-      border-radius: 0 20px 20px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 15px;
-        .mat-form-field {
-          margin-left: 8px;
-          width: 70%;
-          margin-top: 5px;
-        }
-    }
-
-  }
-  .bloc-photo{
-    position:relative}
-    .upload-image{
-      margin-top: 20px;;
-      text-align: center;
-      margin-left: 50px;
-      }
-      .btn{
-        margin-top: 15px;
-        width: 50px;
-        height: 50px;
-      }
-      .errorMsg{
-        color: red;
-        
-      }
+.form{ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 40px;
+  color: black;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),0 1px 1px rgba(128, 128, 128, 0.155),
+  0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+  0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+  0 12px 12px rgba(128, 128, 128, 0.35);
+  width: 20%;
+  align-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1%;
+ }
+.actions{
+    text-align: center;
+}
