@@ -5,7 +5,7 @@
     <span class="example-spacer"></span>
     <button routerLink="/management" routerLinkActive="active-link" class="element" mat-flat-button *ngIf="authService.isModerateur">Gestion</button>
     <button routerLink="/catalogue" routerLinkActive="active-link" class="element" mat-flat-button>Catalogue</button>
-    <button routerLink="/panier" routerLinkActive="active-link" class="element" *ngIf="authService.connectedUser!=null" mat-flat-button>Panier</button>
+    <button routerLink="/panier" routerLinkActive="active-link" class="element" *ngIf="authService.connectedUser!=null" mat-flat-button disabled>Panier</button>
     <button *ngIf="authService.connectedUser==null" routerLink="/login" routerLinkActive="active-link" mat-flat-button>
         Connexion
     </button>

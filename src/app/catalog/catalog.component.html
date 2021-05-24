@@ -6,17 +6,18 @@
           <mat-card-title>{{product.libelle}}</mat-card-title>
           <mat-card-subtitle>{{product.categorie}}</mat-card-subtitle>
         </mat-card-header>
-        <!-- <img mat-card-image src="{{product.urlImage}}" alt="Image of the product" class="imgProduct"> -->
         <mat-card-content>
+          <img mat-card-image src="../assets/img/legumes.jpg" *ngIf="product.categorie=='Legume'" alt="Image of the product" class="imgProduct">
+          <img mat-card-image src="../assets/img/fruits.jpg" *ngIf="product.categorie=='Fruit'" alt="Image of the product" class="imgProduct">
           <p>
-            {{product.description}}
+            Description : {{product.description}}
           </p>
           <p>
             Origine : {{product.provenance}}
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button (click)="addToCard(0)" mat-button>Ajouter</button>
+          <button (click)="addToCard(0)" mat-button disabled>Ajouter</button>
           <button routerLink="/catalogue/{{product._id}}" routerLinkActive="active-link" mat-button>Détail</button>
         </mat-card-actions>
       </mat-card>

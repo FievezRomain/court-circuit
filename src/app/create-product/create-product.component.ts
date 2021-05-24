@@ -13,6 +13,7 @@ export class CreateProductComponent implements OnInit {
   product: Product = new Product();
   products : Array<Product> = new Array <Product>();
   // FormData = new FormData();
+  // image: any;
   message="";
   isValidForm=true;
   constructor(private authService: AuthService ,public productService : ProductService, private route: ActivatedRoute, private router:Router) { }
@@ -34,8 +35,8 @@ export class CreateProductComponent implements OnInit {
     return resultat;
   }
   saveProduct(){
-      this.isValidForm=this.validForm();
-      if (this.isValidForm){
+    this.isValidForm=this.validForm();
+    if (this.isValidForm){
       this.productService.addProduct(this.product).subscribe(
       ()=>{
         this.router.navigate(["/managecatalogue"]);
@@ -44,26 +45,19 @@ export class CreateProductComponent implements OnInit {
         console.log("erreur de suppression");
       }
     )
-    
+  
+    }
   }
-}
   openDialog() {
     if(confirm("Etes-vous sur de vouloir quitter cette page ?")) {
       this.router.navigate(["/managecatalogue"]);  }
   }
   
-  // onFileSelected(event:any) {
-
+  // onFileChange(event:any) {
   //   const file:File = event.target.files[0];
-
   //   if (file) {
-
-  //       this.FormData.append(this.product.id.toString(), file);
-        
-
-        
+  //     this.FormData.append(this.product._id.toString(), file);
+  //     this.product.image = this.FormData;
   //   }
-// }
-
-
+  //  }
 }

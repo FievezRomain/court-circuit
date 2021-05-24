@@ -2,22 +2,28 @@
 
   
     <div class = "page">
-      <mat-grid-list cols="3" rowHeight="1:1">
+      <mat-grid-list cols="3" rowHeight="20em">
         <mat-grid-tile *ngFor="let user of users">
           <mat-card class="user">
             <mat-card-header>
               <mat-card-title>{{user.nom}} {{user.prenom}}</mat-card-title>
               <mat-card-subtitle>{{user.grade}}</mat-card-subtitle>
             </mat-card-header>
-            <!-- <img mat-card-image src="{{product.urlImage}}" alt="Image of the product" class="imgProduct"> -->
             <mat-card-content>
-              <p>
-                Email : {{user.email}}
-              </p>
+              <div>
+                <span class="material-icons icon center">person</span>
+              </div>
+              <div>
+                <p>
+                  Email : {{user.email}}
+                </p>
+              </div>
             </mat-card-content>
             <mat-card-actions>
-              <button routerLink="/manageusers/{{user._id}}" routerLinkActive="active-link"  mat-button>Modifier</button>
-              <button (click)="openDialog(user._id)" mat-button>Supprimer</button>
+              <div class="center">
+                <button routerLink="/manageusers/{{user._id}}" routerLinkActive="active-link"  mat-button>Modifier</button>
+                <button (click)="openDialog(user._id)" mat-button>Supprimer</button>
+              </div>
             </mat-card-actions>
           </mat-card>
         </mat-grid-tile>

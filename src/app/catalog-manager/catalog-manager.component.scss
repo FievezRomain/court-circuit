@@ -19,6 +19,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
     text-align:center;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+ overflow:hidden;
   }
   .imgProduct{
     height: 15vw;
