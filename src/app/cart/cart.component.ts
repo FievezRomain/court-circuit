@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -15,23 +16,37 @@ export class CartComponent implements OnInit {
   //product2: Product = {id : 1, libelle : "Poire", description : "Une belle poire",categorie:"Fruit", provenance : "Allemagne", prix : 5, urlImage : "http://labelbleu.ch/system/files/7205/medium/poire-williams.png?1474442636", quantity  :2}
  
   products : Array<Product> = new Array <Product>();
+  cart: any = 0;
 
 
-  constructor(public productService : ProductService,private route: ActivatedRoute, private router:Router) { }
+  constructor(public productService : ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     //this.products.push(this.product1, this.product2);
-
-    this.getProduits();
+    this.getCart();
   }
-  getProduits(){
-    this.productService.getProducts().subscribe(
-      (produits : any)=>{
-        this.products = produits.data;
-        console.log(this.products);
+
+  getCart(){
+    this.cartService.getCart().subscribe(
+      (cart:any)=>{
+        this.cart = cart;
+        console.log(cart);
       },
       (error)=>{
-        console.log("erreur")
+        console.log(error);
+      }
+    )
+  }
+
+  removeLineFromCart(id: Number):void{
+    console.log(id);
+    this.cartService.removeLineFromCart(id).subscribe(
+      (cart : any)=>{
+        this.cart = cart;
+        console.log(cart);
+      },
+      (error)=>{
+        console.log(error);
       }
     )
   }

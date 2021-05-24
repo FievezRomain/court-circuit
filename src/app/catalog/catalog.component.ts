@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class CatalogComponent implements OnInit {
   products : Array<Product> = new Array <Product>();
 
 
-  constructor(public productService : ProductService) { }
+  constructor(public productService : ProductService, private cartService : CartService) { }
 
   ngOnInit(): void {
     this.getProduits();
@@ -28,7 +29,14 @@ export class CatalogComponent implements OnInit {
     )
   }
   
-  addToCard(idArticle: number):void{
-    //Add product to user concerned
+  addToCart(produit: Product):void{
+    this.cartService.addToCart(produit).subscribe(
+      (cart : any)=>{
+        console.log(cart);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 }

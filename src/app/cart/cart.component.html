@@ -1,55 +1,31 @@
-<h1>Panier</h1>
-
-<div class="shopping-cart">
-
-  <div class="column-labels">
-    <label class="product-image">Image</label>
-    <label class="product-details">Produit</label>
-    <label class="product-price">Prix</label>
-    <label class="product-quantity">Quantité</label>
-    <label class="product-removal">Supprimer</label>
-    <label class="product-line-price">Total</label>
-  </div>
-
-  <div class="product" *ngFor="let product of products">
-    <!-- <div class="product-image">
-      <img src="{{product.urlImage}}">
-    </div> -->
-    <div class="product-details">
-      <div class="product-title">{{product.libelle}}</div>
-      <p class="product-description">{{product.description}}</p>
-    </div>
-    <div class="product-price">{{product.prix}}</div>
-    <div class="product-quantity">
-      <input type="number" value={{product.quantity}} min="1">
-    </div>
-    <div class="product-removal">
-        <button mat-raised-button color="warn" class="remove-product" >
-            <span>Supprimer</span>
-         </button>
-    </div>
-    <div class="product-line-price">25.98</div>
-  </div>
-
-
-  <div class="totals">
-    <div class="totals-item">
-      <label>Sous total</label>
-      <div class="totals-value" id="cart-subtotal">71.97</div>
-    </div>
-    <div class="totals-item">
-      <label>Livraison</label>
-      <div class="totals-value" id="cart-shipping">15.00</div>
-    </div>
-    <div class="totals-item totals-item-total">
-      <label>Grand Total</label>
-      <div class="totals-value" id="cart-total">90.57</div>
-    </div>
-  </div>
-      
-      
-      <button mat-raised-button color="warn" class="checkout" >
-        <span>Paiement</span>
-     </button>
-
+<div class="container">
+  <div class="table">
+		<div class="table-header">
+			<div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Libelle</a></div>
+			<div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Categorie</a></div>
+			<div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Description</a></div>
+			<div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Provenance</a></div>
+      <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Prix unitaire</a></div>
+      <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Quantité</a></div>
+      <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Prix lot</a></div>
+      <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Actions</a></div>
+		</div>
+		<div class="table-content">	
+			<div class="table-row" *ngFor="let product of cart.items">		
+				<div class="table-data">{{product.idProduct.libelle}}</div>
+				<div class="table-data">{{product.idProduct.categorie}}</div>
+				<div class="table-data">{{product.idProduct.description}}</div>
+				<div class="table-data">{{product.idProduct.provenance}}</div>
+				<div class="table-data">{{product.idProduct.prix}} €</div>
+        <div class="table-data">{{product.quantity}}</div>
+        <div class="table-data">{{product.price}} €</div>
+        <div class="table-data">
+          <button (click)="removeLineFromCart(product.idProduct._id)" color="warn" mat-button>Supprimer</button>
+        </div>
+			</div>
+		</div>	
+	</div>
+</div>
+<div class="info">
+  <span><b>Total:</b> {{cart.subTotal}} €</span>
 </div>

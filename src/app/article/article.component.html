@@ -27,17 +27,7 @@
           <h1><b>{{product.prix}} €</b> unité</h1>
         </div>
         <div class="center">
-          <mat-form-field appearance="fill">
-            <input matInput type="Number" type="Number" min="1" required [(ngModel)]="this.quantity" (change)="getTotal()">
-            <span matSuffix>Unité(s)</span>
-            <mat-hint>Quantité</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="info center">
-          <span><b>Total :</b> {{this.total}}</span>
-        </div>
-        <div class="center">
-          <button mat-raised-button color="primary" class="button">
+          <button mat-raised-button color="primary" class="button" (click)="addToCart(product)">
             <span>Ajouter au panier</span>
           </button>
         </div>
