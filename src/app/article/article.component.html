@@ -1,15 +1,13 @@
 
-  <!-- <div class="product-image">
-    <img src={{product.urlImage}} alt="" class="product-pic">
-  </div> -->
-  <mat-grid-list cols="3" rowHeight="2:1" gutterSize="5px">
+   <mat-grid-list cols="3" rowHeight="2:1" gutterSize="5px">
     <mat-grid-tile [colspan]="2" [rowspan]="2">
       <mat-card>
         <div class="title">
           <h1>{{product.libelle}}</h1>
         </div>
         <div class="imageArticle">
-          <img src="" alt="ok"/>
+          <img mat-card-image src="../assets/img/legumes.jpg" *ngIf="product.categorie=='Legume'" alt="Image of the product" class="imgProduct">
+          <img mat-card-image src="../assets/img/fruits.jpg" *ngIf="product.categorie=='Fruit'" alt="Image of the product" class="imgProduct">
         </div>
         <div class="info">
           <span><b>Catégorie :</b> {{product.categorie}}</span>
