@@ -26,6 +26,8 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { ManagementComponent } from './management/management.component';
 import { UsersManagerComponent } from './users-manager/users-manager.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';
+import { FilterPipe } from './filter-pipe';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { UserManagerComponent } from './user-manager/user-manager.component';
     ManagementComponent,
     UsersManagerComponent,
     UserManagerComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { UserManagerComponent } from './user-manager/user-manager.component';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

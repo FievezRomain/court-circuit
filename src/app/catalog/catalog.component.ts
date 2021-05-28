@@ -10,6 +10,7 @@ import { ProductService } from '../services/product.service';
 })
 export class CatalogComponent implements OnInit {
   products : Array<Product> = new Array <Product>();
+  searchText: String = "";
 
 
   constructor(public productService : ProductService, private cartService : CartService) { }
